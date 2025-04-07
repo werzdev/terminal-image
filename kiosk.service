@@ -1,0 +1,14 @@
+# /etc/systemd/system/kiosk.service
+[Unit]
+Description=Kiosk Mode with Chromium
+After=graphical.target
+
+[Service]
+ExecStart=/bin/bash /home/pi/pi-webkiosk/kiosk.sh
+Restart=always
+User=pi
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=graphical.target

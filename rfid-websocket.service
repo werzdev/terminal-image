@@ -1,0 +1,13 @@
+# /etc/systemd/system/rfid-websocket.service
+[Unit]
+Description=RFID WebSocket Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/pi-webkiosk/cardreader_service.py
+WorkingDirectory=/home/pi/pi-webkiosk
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
